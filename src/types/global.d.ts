@@ -76,4 +76,5 @@ type RendererHandlers = {
 	scanned: (fileInfoList: FileInfo[]) => void;
 	completed: (data: CompletedTask) => void;
 	failed: (data: FailedTask) => void;
+	updateTheme: (isDark: boolean) => void;
 };

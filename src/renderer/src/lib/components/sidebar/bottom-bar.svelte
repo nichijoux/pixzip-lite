@@ -2,6 +2,7 @@
 	import { Plus } from 'lucide-svelte';
 	import { addSpace } from './action';
 	import Draw from '../draw/draw.svelte';
+	import ThemeSwitcher from './ThemeSwitcher.svelte';
 </script>
 
 <div class="mb-2 px-2 flex items-center gap-0.5">
@@ -13,5 +14,6 @@
 		<Plus class="w-5 h-5" strokeWidth="1.5" />
 	</button>
 
+	<ThemeSwitcher />
 	<Draw />
 </div>

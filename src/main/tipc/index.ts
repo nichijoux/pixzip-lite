@@ -2,6 +2,7 @@ import { copyFile, folderPicker, getVersion, revealWith, trashFile } from './act
 import { openFolder, scan } from './scan';
 import { addSpace, deleteSpace, getSpaces, updateSpace } from './space';
 import { pushTask, removeTask, emptyTask } from './task';
+import { theme_system, theme_toggle } from './theme';
 import { closeApp, maximizeApp, minimizeApp, unmaximizeApp } from './ui';
 
 export const router = {
@@ -22,7 +23,9 @@ export const router = {
 	revealWith,
 	copyFile,
 	trashFile,
-	getVersion
+	getVersion,
+	theme_toggle,
+	theme_system
 };
 
 export { registerUIHandlers } from './ui';

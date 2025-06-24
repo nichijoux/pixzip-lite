@@ -6,9 +6,28 @@
 	import Stage from '$lib/components/stage/stage.svelte';
 	import { Scan } from '$lib/runes/scan.svelte';
 	import { TaskScheduler } from '$lib/runes/task-scheduler.svelte';
+	import { theme } from '$lib/stores/theme';
+	import { handlers } from '$lib/client';
+	import { onMount } from 'svelte';
 
 	new Scan();
 	new TaskScheduler();
+
+	onMount(() => {
+		const unsub = handlers.updateTheme.listen((isDark) => {
+			if ($theme === 'system') {
+				document.documentElement.classList.toggle('dark', isDark);
+			}
+		});
+
+		return unsub;
+	});
+
+	$: {
+		if ($theme !== 'system') {
+			document.documentElement.classList.toggle('dark', $theme === 'dark');
+		}
+	}
 </script>
 
 <div class="h-screen flex overflow-hidden text-neutral-900 dark:text-neutral-300 text-sm">
