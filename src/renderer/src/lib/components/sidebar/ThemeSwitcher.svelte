@@ -3,6 +3,7 @@
 	import { theme } from '$lib/stores/theme';
 	import type { Theme } from '$lib/stores/theme';
 	import { onMount } from 'svelte';
+	import { fade, fly } from 'svelte/transition';
 
 	let isOpen = false;
 
@@ -13,8 +14,14 @@
 	};
 
 	function change_theme(new_theme: Theme) {
-		theme.set(new_theme);
 		isOpen = false;
+		if (document.startViewTransition) {
+			document.startViewTransition(() => {
+				theme.set(new_theme);
+			});
+		} else {
+			theme.set(new_theme);
+		}
 	}
 
 	function handleClickOutside(event: MouseEvent) {
@@ -42,21 +49,25 @@
 	</button>
 	{#if isOpen}
 		<div
+			transition:fly={{ y: -5, duration: 200 }}
 			class="absolute bottom-full mb-2 w-32 left-0 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-md shadow-lg p-1"
 		>
 			<button
+				transition:fade
 				class="w-full text-left px-2 py-1 rounded hover:bg-neutral-100 dark:hover:bg-neutral-700 flex items-center gap-2"
 				on:click={() => change_theme('light')}
 			>
 				<Sun class="w-4 h-4" /> Light
 			</button>
 			<button
+				transition:fade
 				class="w-full text-left px-2 py-1 rounded hover:bg-neutral-100 dark:hover:bg-neutral-700 flex items-center gap-2"
 				on:click={() => change_theme('dark')}
 			>
 				<Moon class="w-4 h-4" /> Dark
 			</button>
 			<button
+				transition:fade
 				class="w-full text-left px-2 py-1 rounded hover:bg-neutral-100 dark:hover:bg-neutral-700 flex items-center gap-2"
 				on:click={() => change_theme('system')}
 			>
@@ -65,3 +76,9 @@
 		</div>
 	{/if}
 </div>
+
+<style>
+	:global(html) {
+		transition: background-color 0.3s, color 0.3s;
+	}
+</style>
