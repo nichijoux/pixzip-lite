@@ -4,7 +4,7 @@
 	import type { Theme } from '$lib/stores/theme';
 	import { onMount } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
-
+	import { _ } from 'svelte-i18n';
 	let isOpen = false;
 
 	const icons = {
@@ -57,21 +57,21 @@
 				class="w-full text-left px-2 py-1 rounded hover:bg-neutral-100 dark:hover:bg-neutral-700 flex items-center gap-2"
 				on:click={() => change_theme('light')}
 			>
-				<Sun class="w-4 h-4" /> Light
+				<Sun class="w-4 h-4" /> {$_('light')}
 			</button>
 			<button
 				transition:fade
 				class="w-full text-left px-2 py-1 rounded hover:bg-neutral-100 dark:hover:bg-neutral-700 flex items-center gap-2"
 				on:click={() => change_theme('dark')}
 			>
-				<Moon class="w-4 h-4" /> Dark
+				<Moon class="w-4 h-4" /> {$_('dark')}
 			</button>
 			<button
 				transition:fade
 				class="w-full text-left px-2 py-1 rounded hover:bg-neutral-100 dark:hover:bg-neutral-700 flex items-center gap-2"
 				on:click={() => change_theme('system')}
 			>
-				<Laptop class="w-4 h-4" /> System
+				<Laptop class="w-4 h-4" /> {$_('system')}
 			</button>
 		</div>
 	{/if}

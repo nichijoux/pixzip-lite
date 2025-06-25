@@ -1,48 +1,92 @@
-<div align="center">
-  <img src="https://github.com/richhost/pixzip-lite/blob/main/website/static/icon.webp?raw=true" height="256">
-  <h1 align="center">PixZip Lite</h1>
-  <h4 align="center">Easy to use batch image compression software.</h4>
-</div>
+# PixZip Lite（分支版）
 
-> If you want more features (compress by pixel percentage, image comparison, notification, BMP support), please use the [Pro](https://pixzip.cutelabs.in) version. 🙏
+> 本项目 Fork 自 [richhost/pixzip-lite](https://github.com/richhost/pixzip-lite)，遵循 MIT 许可证，感谢原作者的开源贡献！
 
-## PixZip Lite
+---
 
-PixZip Lite is a fast, free image compression software that supports mainstream formats such as JPG / PNG / WebP/ AVIF, and supports Windows 10+ and macOS 12+ operating systems.
+中文 | [English](./README_en.md)
 
-![Log](https://github.com/richhost/pixzip-lite/blob/main/website/static/screenshot.webp?raw=true)
+## 项目简介
 
-**If you think this app is pretty good, give it a [Star](https://github.com/richhost/pixzip) ⭐️ to show your support (^-^)**
+PixZip Lite 是一款基于 Svelte 5 + Electron 的简单易用的批量图片压缩软件，支持 JPG、PNG、WebP、AVIF 等主流格式，适用于 Windows 10+ 和 macOS 12+。
 
-## Install
+- **界面简洁**：现代化UI，极易上手
+- **批量压缩**：支持多图片拖拽、粘贴、批量处理
+- **多格式支持**：JPG、PNG、WebP、AVIF
+- **空间管理**：可自定义多个压缩空间，独立配置参数
+- **系统通知**：压缩完成自动弹窗提醒
+- **跨平台**：Windows/macOS
+- **高性能**：基于 Node.js、sharp 实现高效压缩
 
-[Download](https://github.com/richhost/pixzip-lite/releases)
+## 主要功能
 
-## macOS
-![macOS can't open](https://raw.githubusercontent.com/richhost/pixzip-lite/refs/heads/main/static/macOS_damaged.webp)
+- 拖拽或粘贴图片导入任务列表
+- 多空间（不同压缩配置）
+- 图片压缩、尺寸调整与格式转换
+- 批量处理与进度通知
+- 系统托盘与窗口控制
+- 多语言支持（EN/zh-CN/zh-TW）
 
-You can browser [https://ordonez.tv/2024/11/04/how-to-run-unsigned-apps-in-macos-15-1/](https://ordonez.tv/2024/11/04/how-to-run-unsigned-apps-in-macos-15-1/)
+## 界面预览与功能说明
 
-## Build
+| 界面 | 说明 |
+|---|---|
+| ![app.png](static/app.png) | 应用主界面。 |
+| ![compress.png](static/compress.png) | 图片压缩功能。 |
+| ![dark_mode.png](static/dark_mode.png) | 暗黑模式切换，支持一键切换明暗主题。 |
+| ![draw.png](static/draw.png) | 设置界面。 |
+| ![i18n.png](static/i18n.png) | 多语言支持。 |
+| ![notification.png](static/notification.png) | 通知功能，压缩完成后自动弹出系统通知。 |
+
+## 安装与使用
+
+### 依赖环境
+- Node.js 18+
+- pnpm（推荐）或 npm
+
+### 安装依赖
 ```bash
-pnpm i
-
-# macOS Apple Silicon
-pnpm build:mac:apple
-
-# macOS Intel
-pnpm build:mac:intel
-
-# Windows
-pnpm build:win
+pnpm install
+# 或
+npm install
 ```
 
-## Thanks JetBrains
+### 运行开发环境
+```bash
+pnpm dev
+# 或
+npm run dev
+```
 
-[![JetBrains](https://raw.githubusercontent.com/richhost/pixzip-lite/main/static/JetBrains.svg)](https://www.jetbrains.com/?from=pixzip)
+### 打包构建
+- Windows:
+  ```bash
+  pnpm build:win
+  ```
+- macOS（Apple Silicon）:
+  ```bash
+  pnpm build:mac:apple
+  ```
+- macOS（Intel）:
+  ```bash
+  pnpm build:mac:intel
+  ```
+- linux :
+  ```bash
+  pnpm build:linux
+  ```
 
-## Donate
+### 常见问题
+- macOS 启动报"无法打开未签名应用"，请参考[如何运行未签名App](https://ordonez.tv/2024/11/04/how-to-run-unsigned-apps-in-macos-15-1/)
+- 若遇到依赖问题，请确保 Node.js 版本 >= 18，pnpm 版本 >= 8
 
-[![](https://storage.ko-fi.com/cdn/fullLogoKofi.png)](https://ko-fi.com/abieeyang)
+## 鸣谢与许可证
 
-[![](https://static.afdiancdn.com/static/img/logo/logo.png)](https://afdian.com/a/abiee)
+本项目 Fork 自 [richhost/pixzip-lite](https://github.com/richhost/pixzip-lite)，遵循 MIT 许可证。
+
+感谢原作者的开源贡献！如对本项目有帮助，欢迎 star 原项目。
+
+---
+
+MIT License
+

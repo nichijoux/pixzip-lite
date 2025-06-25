@@ -100,7 +100,11 @@
 {#snippet image()}
 	<div class="flex items-center gap-2 text-xs">
 		<div class="w-8 h-8 shrink-0 grid place-items-center">
-			<img class="max-w-8 max-h-8 shadow" src={thumbImg(file.filepath)} alt="" />
+			{#if file.outputPath && file.outputPath.startsWith('data:image/')}
+				<img class="max-w-8 max-h-8 shadow" src={file.outputPath} alt="" />
+			{:else}
+				<img class="max-w-8 max-h-8 shadow" src={thumbImg(file.filepath)} alt="" />
+			{/if}
 		</div>
 		<div class="grow w-20 min-w-0">
 			<div class="truncate min-w-0">

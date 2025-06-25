@@ -4,6 +4,10 @@
 
 	const links = [
 		{
+			name: 'pixzip-lite',
+			url: 'https://github.com/richhost/pixzip-lite'
+		},
+		{
 			name: 'Svelte',
 			url: 'https://github.com/sveltejs/svelte'
 		},

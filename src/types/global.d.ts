@@ -44,6 +44,7 @@ type ProcessingTask = {
 	extname: string;
 	targetExtname: string;
 };
+
 type CompletedTask = {
 	spaceId: string;
 	filepath: string;
@@ -54,6 +55,7 @@ type CompletedTask = {
 	extname: string;
 	targetExtname: string;
 };
+
 type FailedTask = {
 	spaceId: string;
 	filepath: string;

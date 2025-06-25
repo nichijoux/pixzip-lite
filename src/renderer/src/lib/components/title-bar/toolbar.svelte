@@ -36,7 +36,7 @@
 				});
 			});
 			taskMap.set(space.id, processingTask);
-			client.pushTask({ task: processingTask });
+			client.pushTask({ task: processingTask, notifyMessage: $_('allCompleted') });
 			return { task: new Map(taskMap) };
 		});
 	};

@@ -4,6 +4,7 @@
 	import Resize from './resize.svelte';
 	import SaveInto from './save-into.svelte';
 	import SpaceName from './space-name.svelte';
+	import NotificationSwitch from './notification-switch.svelte';
 	import { _ } from 'svelte-i18n';
 
 	setSpaceConfig();
@@ -18,4 +19,5 @@
 	<Resize />
 	<Compression />
 	<SaveInto />
+	<NotificationSwitch />
 </form>

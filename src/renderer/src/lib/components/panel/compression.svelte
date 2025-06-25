@@ -4,15 +4,15 @@
 	import Checkbox from '../ui/checkbox.svelte';
 	import { getSpaceConfig } from '$lib/runes/space-config.svelte';
 	import { Select } from '../ui/select';
-	import { _ } from 'svelte-i18n';
+	import { _, locale } from 'svelte-i18n';
 
-	const items = [
+	const items = $derived([
 		{ value: 'original', label: $_('originalFormat') },
 		{ value: 'avif', label: 'AVIF' },
 		{ value: 'webp', label: 'WebP' },
 		{ value: 'png', label: 'PNG' },
 		{ value: 'jpg', label: 'JPG' }
-	];
+	]);
 
 	const spaceConfig = getSpaceConfig();
 
@@ -28,13 +28,15 @@
 <Fieldset legend={$_('compression')}>
 	<div class="flex items-center justify-between">
 		<span class="font-medium">{$_('format')}</span>
-		<Select
-			{items}
-			value={[format]}
-			onValueChange={({ value }) => {
-				spaceConfig.update('format', value[0]);
-			}}
-		></Select>
+		{#key $locale}
+			<Select
+				{items}
+				value={[format]}
+				onValueChange={({ value }) => {
+					spaceConfig.update('format', value[0]);
+				}}
+			/>
+		{/key}
 	</div>
 
 	<hr class="border-neutral-200 dark:border-neutral-100/10 mt-3 mb-2" />

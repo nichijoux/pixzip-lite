@@ -8,12 +8,12 @@
 	});
 
 	const fetchVersion = async () => {
-		const resp = await fetch('https://api.github.com/repos/richhost/pixzip-lite/releases/latest');
+		const resp = await fetch('https://api.github.com/repos/nichijoux/pixzip-lite/releases/latest');
 		const data = await resp.json();
 		if (resp.ok) {
 			return data.tag_name.replace('v', '');
 		}
-		throw new Error('Failed to fetch version');
+		throw new Error($_('fetchVersionFailed'));
 	};
 </script>
 
@@ -31,7 +31,7 @@
 			<p>{$_('Latest version')}: {data}</p>
 			<a
 				class="rounded-md flex items-center justify-center h-8 bg-neutral-900 font-medium text-white mt-2"
-				href="https://github.com/richhost/pixzip-lite/releases"
+				href="https://github.com/nichijoux/pixzip-lite/releases"
 				target="_blank"
 				rel="noreferrer"
 			>

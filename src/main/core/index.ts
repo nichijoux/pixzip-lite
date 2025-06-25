@@ -1,2 +1,2 @@
-export { addTask, clearTask, delTask } from './core';
+export { addTask, clearTask, delTask, setWorkspaceTaskTotal } from './core';
 export type * from './core';

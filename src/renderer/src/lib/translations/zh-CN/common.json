@@ -19,12 +19,13 @@
 	"auto": "自动",
 	"light": "浅色",
 	"dark": "深色",
+	"system": "跟随系统",
 	"privacy": "隐私",
 	"privacyDesc": "所有操作都在本地执行，不会上传任何数据。请放心使用。",
 	"openSource": "开源",
-	"openSourceDesc": "PixZip 的开发基于优秀的开源项目。特别感谢以下项目",
+	"openSourceDesc": "PixZip-Lite（fork） 的开发基于优秀的开源项目。特别感谢以下项目",
 	"donate": "捐赠",
-	"donateDesc": "如果你喜欢这个项目，请赞助我。",
+	"donateDesc": "如果你喜欢这个项目，请赞助原项目。",
 	"saveInto": "保存到",
 	"originalFormat": "原格式",
 	"originalDir": "原目录",
@@ -44,5 +45,9 @@
 	"space": "工作区",
 	"add": "新建",
 	"start": "开始",
-	"clear": "清空"
+	"clear": "清空",
+	"notification": "通知",
+	"enableNotifications": "启用桌面通知",
+	"notificationDesc": "压缩完成后显示桌面通知",
+	"allCompleted": "该工作区所有图片已压缩完成"
 }
