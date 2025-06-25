@@ -5,6 +5,8 @@
 	import { emptyTaskWithSpaceId, taskStore } from '$lib/stores/task';
 	import { useStore } from '@tanstack/svelte-store';
 	import { Plus, Play, Eraser } from 'lucide-svelte';
+	import Tooltip from '$lib/components/ui/tooltip.svelte';
+	import { _ } from 'svelte-i18n';
 
 	const spaceId = useStore(defaultSpaceStore);
 
@@ -41,24 +43,30 @@
 </script>
 
 <div class="flex items-center gap-0.5">
-	<button
-		onclick={client.openFolder}
-		class="h-7 w-7 transition hover:bg-neutral-200 hover:dark:bg-neutral-100/10 grid place-items-center rounded"
-	>
-		<Plus class="w-5 h-5" strokeWidth="1.5" />
-	</button>
+	<Tooltip content={$_('add')} placement="bottom">
+		<button
+			onclick={client.openFolder}
+			class="h-7 w-7 transition hover:bg-neutral-200 hover:dark:bg-neutral-100/10 grid place-items-center rounded"
+		>
+			<Plus class="w-5 h-5" strokeWidth="1.5" />
+		</button>
+	</Tooltip>
 
-	<button
-		onclick={start}
-		class="h-7 w-7 transition hover:bg-neutral-200 hover:dark:bg-neutral-100/10 grid place-items-center rounded"
-	>
-		<Play class="w-4 h-4" strokeWidth="1.5" />
-	</button>
+	<Tooltip content={$_('start')} placement="bottom">
+		<button
+			onclick={start}
+			class="h-7 w-7 transition hover:bg-neutral-200 hover:dark:bg-neutral-100/10 grid place-items-center rounded"
+		>
+			<Play class="w-4 h-4" strokeWidth="1.5" />
+		</button>
+	</Tooltip>
 
-	<button
-		onclick={emptyTask}
-		class="h-7 w-7 transition hover:bg-neutral-200 hover:dark:bg-neutral-100/10 grid place-items-center rounded"
-	>
-		<Eraser class="w-4 h-4" strokeWidth="1.5" />
-	</button>
+	<Tooltip content={$_('clear')} placement="bottom">
+		<button
+			onclick={emptyTask}
+			class="h-7 w-7 transition hover:bg-neutral-200 hover:dark:bg-neutral-100/10 grid place-items-center rounded"
+		>
+			<Eraser class="w-4 h-4" strokeWidth="1.5" />
+		</button>
+	</Tooltip>
 </div>

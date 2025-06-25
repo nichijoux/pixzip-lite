@@ -25,54 +25,59 @@
 	}
 </script>
 
-<div class="flex items-center justify-between language-dropdown">
-	<span class="font-medium">{$_('language')}</span>
-	<div style="min-width:100px; width: 120px;">
-		<button
-			class="language-dropdown-btn"
-			on:click={() => (open = !open)}
-			type="button"
-			aria-haspopup="listbox"
-			aria-expanded={open}
-		>
-			<span class="mr-auto">{items.find((i) => i.value === $lang)?.label ?? $lang}</span>
-			<svg class="language-dropdown-arrow" width="16" height="16" viewBox="0 0 16 16"
-				><path
-					d="M4 6l4 4 4-4"
-					stroke="currentColor"
-					stroke-width="1.5"
-					fill="none"
-					stroke-linecap="round"
-				/></svg
-			>
-		</button>
-		{#if open}
-			<div class="language-dropdown-list" role="listbox">
-				{#each items as item, i}
-					<!-- svelte-ignore a11y_click_events_have_key_events -->
-					<div
-						class="language-dropdown-item {item.value === $lang ? 'active' : ''}"
-						role="option"
-						tabindex={i}
-						aria-selected={item.value === $lang}
-						on:click={() => selectLang(item.value)}
+<div class="p-4 bg-blue-50 p-4 rounded-md shadow dark:bg-blue-900/20 rounded-md shadow">
+	<h2 class="text-lg font-bold mb-3">{$_('settings')}</h2>
+	<div class="flex flex-col gap-3">
+		<div class="flex items-center justify-between language-dropdown">
+			<span class="font-medium">{$_('language')}</span>
+			<div style="min-width:100px; width: 120px;">
+				<button
+					class="language-dropdown-btn"
+					on:click={() => (open = !open)}
+					type="button"
+					aria-haspopup="listbox"
+					aria-expanded={open}
+				>
+					<span class="mr-auto">{items.find((i) => i.value === $lang)?.label ?? $lang}</span>
+					<svg class="language-dropdown-arrow" width="16" height="16" viewBox="0 0 16 16"
+						><path
+							d="M4 6l4 4 4-4"
+							stroke="currentColor"
+							stroke-width="1.5"
+							fill="none"
+							stroke-linecap="round"
+						/></svg
 					>
-						<span>{item.label}</span>
-						{#if item.value === $lang}
-							<svg class="language-dropdown-check" width="16" height="16" viewBox="0 0 16 16"
-								><path
-									d="M4 8l3 3 5-5"
-									stroke="currentColor"
-									stroke-width="1.5"
-									fill="none"
-									stroke-linecap="round"
-								/></svg
+				</button>
+				{#if open}
+					<div class="language-dropdown-list" role="listbox">
+						{#each items as item}
+							<!-- svelte-ignore a11y_click_events_have_key_events -->
+							<div
+								class="language-dropdown-item {item.value === $lang ? 'active' : ''}"
+								role="option"
+								tabindex="0"
+								aria-selected={item.value === $lang}
+								on:click={() => selectLang(item.value)}
 							>
-						{/if}
+								<span>{item.label}</span>
+								{#if item.value === $lang}
+									<svg class="language-dropdown-check" width="16" height="16" viewBox="0 0 16 16"
+										><path
+											d="M4 8l3 3 5-5"
+											stroke="currentColor"
+											stroke-width="1.5"
+											fill="none"
+											stroke-linecap="round"
+										/></svg
+									>
+								{/if}
+							</div>
+						{/each}
 					</div>
-				{/each}
+				{/if}
 			</div>
-		{/if}
+		</div>
 	</div>
 </div>
 
@@ -134,5 +139,24 @@
 	.language-dropdown-check {
 		margin-left: auto;
 		color: #222;
+	}
+
+	@media (prefers-color-scheme: dark) {
+		.language-dropdown-btn {
+			background: #23272f;
+			color: #eee;
+			border-color: #222;
+		}
+		.language-dropdown-list {
+			background: #23272f;
+			border-color: #222;
+		}
+		.language-dropdown-item.active,
+		.language-dropdown-item:hover {
+			background: #444;
+		}
+		.language-dropdown-check {
+			color: #fff;
+		}
 	}
 </style>

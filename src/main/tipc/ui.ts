@@ -6,8 +6,7 @@ const t = tipc.create();
 
 export const maximizeApp = t.procedure.action(async () => {
 	const window = await getMainWindow();
-
-	window.maximize();
+	window.setFullScreen(!window.isFullScreen())
 });
 
 export const unmaximizeApp = t.procedure.action(async () => {

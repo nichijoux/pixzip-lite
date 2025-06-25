@@ -6,11 +6,11 @@
   "width": "Width",
   "height": "Height",
   "compression": "Compression",
-  "format": "Format",
+  "format": "Output Format",
   "level": "Level",
   "bestQuality": "Best Quality",
   "lowestQuality": "Lowest Quality",
-  "keepEXIF": "Keep EXIF",
+  "keepEXIF": "Keep EXIF Info",
   "dragHint": "Drag image file or folders here",
   "supportedFormats": "Supported formats",
   "settings": "Settings",
@@ -41,5 +41,8 @@
   "showInFolder": "Show in Folder",
   "copy": "Copy",
   "remove": "Remove",
-  "space": "Workspace"
+  "space": "Workspace",
+  "add": "Add",
+  "start": "Start",
+  "clear": "Clear"
 } 

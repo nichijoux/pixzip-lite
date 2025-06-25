@@ -17,7 +17,9 @@
 	};
 </script>
 
-<div class="p-4 rounded-md bg-amber-200 text-neutral-900 shadow">
+<div
+	class="p-4 rounded-md bg-amber-200 text-neutral-900 shadow dark:bg-amber-900/20 dark:text-neutral-100"
+>
 	<h2 class="font-bold text-lg mb-1">{$_('version')}</h2>
 
 	<div>{$_('currentVersion')}: {version}</div>

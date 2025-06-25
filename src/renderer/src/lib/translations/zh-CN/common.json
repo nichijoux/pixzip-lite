@@ -6,11 +6,11 @@
 	"width": "宽度",
 	"height": "高度",
 	"compression": "压缩",
-	"format": "格式",
+	"format": "输出格式",
 	"level": "等级",
 	"bestQuality": "最佳质量",
 	"lowestQuality": "最低质量",
-	"keepEXIF": "保留EXIF",
+	"keepEXIF": "保留EXIF信息",
 	"dragHint": "拖拽图片文件或文件夹到此处",
 	"supportedFormats": "支持的格式",
 	"settings": "设置",
@@ -41,5 +41,8 @@
 	"showInFolder": "在文件夹中显示",
 	"copy": "复制",
 	"remove": "移除",
-	"space": "工作区"
+	"space": "工作区",
+	"add": "新建",
+	"start": "开始",
+	"clear": "清空"
 }

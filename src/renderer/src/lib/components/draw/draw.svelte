@@ -23,12 +23,7 @@
 			>
 				<main class="grid grid-cols-2 max-w-lg mx-auto gap-5">
 					<section class="flex flex-col gap-5">
-						<div class="p-4 dark:bg-neutral-700 dark:text-neutral-100 rounded-md shadow">
-							<h2 class="text-lg font-bold mb-3">{$_('settings')}</h2>
-							<div class="flex flex-col gap-3">
-								<Language />
-							</div>
-						</div>
+						<Language />
 						<Version />
 						<Privacy />
 					</section>

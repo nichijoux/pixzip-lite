@@ -17,6 +17,9 @@ async function createWindow() {
 		height: mainWindowState.height,
 		minWidth: 800,
 		minHeight: 400,
+		minimizable: true,
+		// maximizable: platform !== 'win32',
+		closable: true,
 		frame: !(platform === 'linux'),
 		titleBarStyle: 'hidden',
 		trafficLightPosition: { x: 10, y: 11 },
@@ -24,14 +27,18 @@ async function createWindow() {
 		backgroundMaterial: 'acrylic',
 		visualEffectState: 'active',
 		transparent: platform === 'darwin',
-		// maximizable: platform !== 'win32',
 		webPreferences: {
+			// 启用高DPI支持
+			enablePreferredSizeMode: true,
 			nodeIntegration: false,
 			contextIsolation: true,
 			sandbox: false,
 			preload: fileURLToPath(new URL('../preload/index.mjs', import.meta.url))
 		}
 	});
+
+	// 将窗口居中
+	browserWindow.center();
 
 	if (!app.isPackaged && process.env.ELECTRON_RENDERER_URL) {
 		browserWindow.loadURL(process.env.ELECTRON_RENDERER_URL);
@@ -61,7 +68,7 @@ export async function restoreOrCreateWindow() {
 		browserWindow = await createWindow();
 	}
 
-	if (browserWindow.isMinimizable()) {
+	if (browserWindow.isMinimized()) {
 		browserWindow.restore();
 	}
 

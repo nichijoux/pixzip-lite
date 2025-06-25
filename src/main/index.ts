@@ -42,5 +42,5 @@ app.setAboutPanelOptions({
 	applicationVersion: app.getVersion(),
 	version: ''
 });
-
 registerIpcMain(router);
+

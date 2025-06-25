@@ -4,6 +4,24 @@
 	@apply select-none cursor-default;
 }
 
+/* 为可交互元素设置pointer光标 */
+button,
+a,
+[role="button"],
+[data-clickable="true"],
+.clickable {
+	@apply cursor-pointer;
+}
+
+/* hover状态保持pointer */
+button:hover,
+a:hover,
+[role="button"]:hover,
+[data-clickable="true"]:hover,
+.clickable:hover {
+	@apply cursor-pointer;
+}
+
 :root {
 	--w-sidebar-min: 180px;
 	--w-sidebar-max: 240px;
@@ -48,5 +66,14 @@ textarea {
 
 	.no-drag {
 		-webkit-app-region: no-drag;
+	}
+
+	/* 添加自定义的pointer光标工具类 */
+	.cursor-pointer-hover {
+		@apply cursor-pointer;
+	}
+
+	.cursor-pointer-hover:hover {
+		@apply cursor-pointer;
 	}
 }
