@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { ArrowUpRight } from 'lucide-svelte';
+	import { _ } from 'svelte-i18n';
 
 	const links = [
 		{
@@ -22,10 +23,9 @@
 </script>
 
 <div class="p-4 dark:bg-neutral-700 dark:text-neutral-100 rounded-md shadow">
-	<h2 class="text-lg font-bold mb-1">Open Source</h2>
+	<h2 class="text-lg font-bold mb-1">{$_('openSource')}</h2>
 	<p class="">
-		PixZip's development is based on excellent open-source projects. Special thanks to the following
-		projects
+		{$_('openSourceDesc')}
 	</p>
 	<ul class="list-disc px-4 mt-2">
 		{#each links as item}

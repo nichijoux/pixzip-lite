@@ -4,6 +4,7 @@
 	import { MenuContent, MenuItem, MenuRoot, MenuTrigger } from '../ui/context-menu';
 	import { defaultSpaceStore, updateDefaultSpace } from '$lib/stores/space';
 	import { deleteSpace } from './action';
+	import { _ } from 'svelte-i18n';
 
 	const { space, length }: { space: Pixzip.Space; length: number } = $props();
 
@@ -31,14 +32,14 @@
 			)}
 			onclick={() => updateDefaultSpace(space.id)}
 		>
-			{space.name}
+			{space.name === 'Space' ? $_('space') : space.name}
 		</button>
 	</MenuTrigger>
 	<MenuContent class="w-28 dark:bg-neutral-700 dark:border-neutral-100/10">
 		<MenuItem
 			value="delete"
 			class="dark:data-[highlighted]:bg-neutral-600 dark:data-[disabled]:text-neutral-500"
-			disabled={length === 1}>Delete</MenuItem
+			disabled={length === 1}>{$_('delete')}</MenuItem
 		>
 	</MenuContent>
 </MenuRoot>

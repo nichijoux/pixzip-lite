@@ -15,6 +15,7 @@
 	import { removeTask } from '$lib/stores/task';
 	import { useStore } from '@tanstack/svelte-store';
 	import { defaultSpaceStore } from '$lib/stores/space';
+	import { _ } from 'svelte-i18n';
 
 	type Props = {
 		file: FileTask;
@@ -78,19 +79,19 @@
 		</MenuTrigger>
 		<MenuContent>
 			<MenuItem value="show">
-				<SquareArrowOutUpRight class="w-4 h-4 mr-2 text-neutral-500" />Show in Folder
+				<SquareArrowOutUpRight class="w-4 h-4 mr-2 text-neutral-500" />{$_('showInFolder')}
 			</MenuItem>
 			{#if OS !== 'linux'}
 				<MenuItem value="copy">
-					<Clipboard class="w-4 h-4 mr-2 text-neutral-500" />Copy
+					<Clipboard class="w-4 h-4 mr-2 text-neutral-500" />{$_('copy')}
 				</MenuItem>
 			{/if}
 			<MenuItem value="remove">
-				<ImageMinus class="w-4 h-4 mr-2 text-neutral-500" />Remove
+				<ImageMinus class="w-4 h-4 mr-2 text-neutral-500" />{$_('remove')}
 			</MenuItem>
 			<MenuSeparator />
 			<MenuItem value="delete" class="text-red-600">
-				<Trash2 class="w-4 h-4 mr-2" />Delete
+				<Trash2 class="w-4 h-4 mr-2" />{$_('delete')}
 			</MenuItem>
 		</MenuContent>
 	</MenuRoot>

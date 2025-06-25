@@ -4,6 +4,7 @@
 	import Input from '../ui/input.svelte';
 	import { client } from '$lib/client';
 	import { getSpaceConfig } from '$lib/runes/space-config.svelte';
+	import { _ } from 'svelte-i18n';
 
 	const spaceConfig = getSpaceConfig();
 
@@ -20,9 +21,9 @@
 	};
 </script>
 
-<Fieldset legend="Save Into">
+<Fieldset legend={$_('saveInto')}>
 	<Radio
-		label="Original Directory"
+		label={$_('originalDir')}
 		name="save into"
 		checked={originalDir}
 		onchange={(e) => {
@@ -31,7 +32,7 @@
 	/>
 	<Radio
 		class="my-1"
-		label="Custom Directory"
+		label={$_('customDir')}
 		name="save into"
 		checked={!originalDir}
 		onchange={(e) => {
@@ -48,7 +49,7 @@
 	<hr class="border-neutral-200 my-4 dark:border-neutral-100/10" />
 
 	<label class="flex items-center justify-between">
-		<span class="font-medium">Suffix</span>
+		<span class="font-medium">{$_('suffix')}</span>
 		<Input
 			class="w-28"
 			value={suffix}
@@ -58,5 +59,5 @@
 			spellcheck={false}
 		/>
 	</label>
-	<div class="text-xs text-right">filename<span class="text-sky-500">{suffix}</span>.jpg</div>
+	<div class="text-xs text-right">{$_('filename')}<span class="text-sky-500">{suffix}</span>.jpg</div>
 </Fieldset>

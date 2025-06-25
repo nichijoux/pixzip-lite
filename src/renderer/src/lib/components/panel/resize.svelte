@@ -2,6 +2,7 @@
 	import { getSpaceConfig } from '$lib/runes/space-config.svelte';
 	import NumberInput from '../ui/number-input.svelte';
 	import Fieldset from './fieldset.svelte';
+	import { _ } from 'svelte-i18n';
 
 	const spaceConfig = getSpaceConfig();
 
@@ -20,23 +21,23 @@
 	};
 </script>
 
-<Fieldset legend="Resize" class="flex flex-col gap-2">
+<Fieldset legend={$_('resize')} class="flex flex-col gap-2">
 	<NumberInput
-		label="Width"
+		label={$_('width')}
 		inputClass=""
 		class="w-28"
 		value={width}
-		placeholder="Auto"
+		placeholder={$_('auto')}
 		onValueChange={({ valueAsNumber }) => {
 			spaceConfig.update('width', transformValue(valueAsNumber));
 		}}
 	/>
 	<NumberInput
-		label="Height"
+		label={$_('height')}
 		inputClass=""
 		class="w-28"
 		value={height}
-		placeholder="Auto"
+		placeholder={$_('auto')}
 		onValueChange={({ valueAsNumber }) => {
 			spaceConfig.update('height', transformValue(valueAsNumber));
 		}}

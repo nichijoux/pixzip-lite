@@ -4,9 +4,10 @@
 	import Checkbox from '../ui/checkbox.svelte';
 	import { getSpaceConfig } from '$lib/runes/space-config.svelte';
 	import { Select } from '../ui/select';
+	import { _ } from 'svelte-i18n';
 
 	const items = [
-		{ value: 'original', label: 'Original' },
+		{ value: 'original', label: $_('originalFormat') },
 		{ value: 'avif', label: 'AVIF' },
 		{ value: 'webp', label: 'WebP' },
 		{ value: 'png', label: 'PNG' },
@@ -24,9 +25,9 @@
 	});
 </script>
 
-<Fieldset legend="Compression">
+<Fieldset legend={$_('compression')}>
 	<div class="flex items-center justify-between">
-		<span class="font-medium">Format</span>
+		<span class="font-medium">{$_('format')}</span>
 		<Select
 			{items}
 			value={[format]}
@@ -40,7 +41,7 @@
 
 	<div>
 		<div class="flex items-center justify-between mb-2">
-			<span class="font-medium">Level</span>
+			<span class="font-medium">{$_('level')}</span>
 			<span>{level}</span>
 		</div>
 		<Slider
@@ -54,15 +55,15 @@
 			class="py-1"
 		/>
 		<div class="text-xs flex items-center justify-between mt-2 text-neutral-600">
-			<span>Best Quality</span>
-			<span>Lowest Quality</span>
+			<span>{$_('bestQuality')}</span>
+			<span>{$_('lowestQuality')}</span>
 		</div>
 	</div>
 
 	<hr class="border-neutral-200 dark:border-neutral-100/10 my-3" />
 
 	<Checkbox
-		label="Keep EXIF"
+		label={$_('keepEXIF')}
 		checked={keepEXIF}
 		onchange={(e) => {
 			spaceConfig.update('keepExif', (e.target as HTMLInputElement).checked);

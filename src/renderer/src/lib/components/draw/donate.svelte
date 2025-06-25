@@ -1,6 +1,10 @@
+<script lang="ts">
+	import { _ } from 'svelte-i18n';
+</script>
+
 <div class="rounded-md bg-[#ff5f5f0d] p-4 shadow">
-	<h2 class="text-lg font-bold mb-1">Donate</h2>
-	<p>If you like this project, please sponsor me.</p>
+	<h2 class="text-lg font-bold mb-1">{$_('donate')}</h2>
+	<p>{$_('donateDesc')}</p>
 	<a
 		href="https://ko-fi.com/abieeyang"
 		target="_blank"
