@@ -11,7 +11,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [macos-14, macos-12, windows-latest]
+        os: [macos-14, macos-13, windows-latest]
 
     steps:
       - name: Check out Git repository
@@ -20,7 +20,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Install Python
         uses: actions/setup-python@v5
@@ -30,7 +30,7 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 9
+          version: 10
 
       - name: Install Dependencies
         run: pnpm install
@@ -42,7 +42,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build for macOS Intel
-        if: matrix.os == 'macos-12'
+        if: matrix.os == 'macos-13'
         run: pnpm run build:mac:intel
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
